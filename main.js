@@ -47,7 +47,7 @@ app.get('/cafes', (req, res) => {
         // Check if the preferences are valid
         const validpreferences = ['quiet', 'cozy', 'lively', 'wifi', 'power', 'food'];
         for (let pref of preferences) {
-            if (!validpreferences.includes(pref)) {
+            if (!validpreferences.includes(preferences)) {
                 // Return an error if an invalid preference is given
                 return res.status(400).json({ error: 'Invalid preference: ' + pref });
             }
@@ -55,7 +55,7 @@ app.get('/cafes', (req, res) => {
 
         // Add the preferences to the SQL query
         sql += city ? ' AND (' : ' WHERE (';
-        for (let i = 0; i < prefs.length; i++) {
+        for (let i = 0; i < preferences.length; i++) {
             sql += i > 0 ? ' OR ' : '';
             sql += preferences[i] + ' = ?';
             params.push(true);
