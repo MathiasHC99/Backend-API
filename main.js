@@ -1,4 +1,3 @@
-// Create the API using Node.js and Express.js
 const express = require('express');
 const mysql = require('mysql2');
 const app = express();
@@ -8,6 +7,7 @@ const port = 3000;
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
+    password: 'etpassword321',
     database: 'study_cafe_finder'
 });
 
@@ -100,7 +100,7 @@ app.get('/cafes/:id', (req, res) => {
     });
 });
 
-// Create an endpoint to create a new cafe
+// Create an endpoint to create a new fav cafe
 app.post('/cafes', (req, res) => {
     // Get the cafe data from the request body
     const cafe = req.body;
