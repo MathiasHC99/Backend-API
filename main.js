@@ -239,10 +239,10 @@ app.post('/users/:id/favorites', (req, res) => {
     const params = [user_id, cafe_id];
 
     // Execute the SQL query
-    connection.query(sql, params, (err, results) => {
-        if (err) {
+    connection.query(sql, params, (error, results) => {
+        if (error) {
             // Return an error if the query fails
-            return res.status(500).json({ error: 'Error inserting into the database: ' + err });
+            return res.status(500).json({ error: 'Error inserting into the database: ' + error });
         }
         // Return a success message as JSON
         res.json({ message: 'Favorite added successfully' });
