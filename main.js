@@ -67,7 +67,7 @@ app.get('/cafes', (req, res) => {
     connection.query(sql, params, (error, results) => {
         if (error) {
             // Return an error if the query fails
-            return res.status(500).json({ error: 'Error querying the database: ' + err });
+            return res.status(500).json({ error: 'Error querying the database: ' + error });
         }
         // Return the results as JSON
         res.json(results);
@@ -87,7 +87,7 @@ app.get('/cafes/:id', (req, res) => {
     connection.query(sql, params, (error, results) => {
         if (error) {
             // Return an error if the query fails
-            return res.status(500).json({ error: 'Error querying the database: ' + err });
+            return res.status(500).json({ error: 'Error querying the database: ' + error });
         }
         // Check if the cafe exists
         if (results.length > 0) {
